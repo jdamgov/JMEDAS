@@ -98,6 +98,7 @@ for entry in xrange(entries):
 	metPUPPIHist.Fill( metPUPPIpt )
 	
 
+        dyV.SetPz(0.)
 	met3V = (metV).Vect()	
 	metPUPPI3V = (metPUPPIV).Vect()	
 	dy3V = dyV.Vect()
