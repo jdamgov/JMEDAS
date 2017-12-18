@@ -23,7 +23,7 @@ gROOT.Macro("rootlogon.C")
 setTDRStyle()
 
 #Settings for each of the pads in the canvas
-settingsTMP = {'response' : (1,0.0,2.0,0.0,0.12,"Response (p_{T}^{RECO}/p_{T}^{GEN})","a.u.",False),
+settingsTMP = {'response' : (1,0.5,1.5,0.0,0.18,"Response (p_{T}^{RECO}/p_{T}^{GEN})","a.u.",False),
 			   'pt'       : (2,10.0,200.0,0.0,0.21,"p_{T}^{RECO}","a.u.",True),
 			   'eta' 	  : (3,-5,5,0.0,0.1,"#eta","a.u.",False),
 			   'phi' 	  : (4,-3.14159,3.14159,0.0,0.04,"#phi","a.u.",False)
