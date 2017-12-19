@@ -49,7 +49,7 @@ f = TFile(options.ifilename)
 
 # Histogram settings
 alg_size = options.algsize
-jetTypes = OrderedDict([("PF" , kBlack),("PFCHS" , kRed),("PFPuppi" , kGreen)])
+jetTypes = OrderedDict([("PF" , kBlack),("PFCHS" , kRed),("PFPuppi" , kBlue)])
 corrections = OrderedDict([("Uncorrected" , kDotted),("L1" , kDashed),("L1L2L3" , kSolid)])
 hsettingsTMP = {'response' : (1,80,0,2),
 			    'pt'       : (2,200,0,1000),
