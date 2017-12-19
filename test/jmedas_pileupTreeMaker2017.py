@@ -136,7 +136,7 @@ process.TFileService.fileName=cms.string(options.ofilename)
 #! |_____|_| \_|_|     \____/   |_|                                       
 
 if options.doMiniAOD:
-	process.load("Analysis.JMEDAS.test_MINIAODSIM")
+	process.load("Analysis.JMEDAS.qcdflat_MINIAODSIM_v4_cff")
 #	process.load("Analysis.JMEDAS.dy_MINIAODSIM_v3_cff")
 #else: # todo: update samples for AOD mode
 #	process.load("Analysis.JMEDAS.qcdflat_AODSIM_v3_cff")
