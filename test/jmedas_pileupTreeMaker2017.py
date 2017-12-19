@@ -46,6 +46,7 @@ options.register('useUpdater',
                  VarParsing.VarParsing.varType.int,
                  'If true, the jets taken from the MiniAOD sample and not reclustered will have new JEC applied.')
 options.register('era',
+                 #'Summer16_23Sep2016V4_MC',
                  'Spring16_25nsV6_MC',
                  VarParsing.VarParsing.multiplicity.singleton,
                  VarParsing.VarParsing.varType.string,
@@ -71,7 +72,7 @@ options.register('JESUncertainty',
                  VarParsing.VarParsing.varType.string,
                  'Controls whether of not the JES uncertainties are applied. The options are: {none,up,down}')
 options.register('ofilename',
-                 'JECNtuple.root',
+                 'test_JECNtuple.root',
                  VarParsing.VarParsing.multiplicity.singleton,
                  VarParsing.VarParsing.varType.string,
                  'The name of the output ROOT file.')
@@ -135,10 +136,10 @@ process.TFileService.fileName=cms.string(options.ofilename)
 #! |_____|_| \_|_|     \____/   |_|                                       
 
 if options.doMiniAOD:
-	process.load("Analysis.JMEDAS.qcdflat_MINIAODSIM_v3_cff")
+	process.load("Analysis.JMEDAS.test_MINIAODSIM")
 #	process.load("Analysis.JMEDAS.dy_MINIAODSIM_v3_cff")
-else:
-	process.load("Analysis.JMEDAS.qcdflat_AODSIM_v3_cff")
+#else: # todo: update samples for AOD mode
+#	process.load("Analysis.JMEDAS.qcdflat_AODSIM_v3_cff")
 
 process.maxEvents = cms.untracked.PSet(input = cms.untracked.int32(options.maxEvents))
 
@@ -244,8 +245,10 @@ maxCL = max(maxCL,len("Correction Levels"))
 #!  \_____\____/|_| \_|_____/_____|  |_|  |_____\____/|_| \_|_____/ 
 																  
 process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_condDBv2_cff")
+#process.GlobalTag.globaltag = cms.string('80X_mcRun2_asymptotic_2016_TrancheIV_v8')
 process.GlobalTag.globaltag = cms.string('80X_mcRun2_asymptotic_2016_miniAODv2_v1')
 if options.applyDBFile:
+        print "applying JECs from DB file"
 	from CondCore.DBCommon.CondDBSetup_cfi import *
 	process.jec = cms.ESSource("PoolDBESSource",CondDBSetup,
 							   connect = cms.string('sqlite_file:'+options.era+'.db'),
