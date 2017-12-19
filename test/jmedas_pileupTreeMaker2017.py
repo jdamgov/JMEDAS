@@ -71,7 +71,7 @@ options.register('JESUncertainty',
                  VarParsing.VarParsing.varType.string,
                  'Controls whether of not the JES uncertainties are applied. The options are: {none,up,down}')
 options.register('ofilename',
-                 'JECNtuple.root',
+                 'test_JECNtuple.root',
                  VarParsing.VarParsing.multiplicity.singleton,
                  VarParsing.VarParsing.varType.string,
                  'The name of the output ROOT file.')
