@@ -1,6 +1,5 @@
 from ROOT import *
-#from Analysis.JMEDAS.tdrstyle_mod14 import *
-from tdrstyle_mod14 import *
+from Analysis.JMEDAS.tdrstyle_mod14 import *
 from collections import OrderedDict
 from optparse import OptionParser
 
@@ -172,7 +171,7 @@ for hs in hsnames:
 				fits[fname].SetLineColor(icol)
 				fits[fname].SetLineStyle(corrections[cor])
 				histograms[hname].Fit(fits[fname],"RQ0")
-				numberstring = "res "+str(round(fits[fname].GetParameter(1),2))+"#pm"+str(round(fits[fname].GetParameter(2),2))
+				numberstring = "res "+str(round(fits[fname].GetParameter(1),3))+"#pm"+str(round(fits[fname].GetParameter(2)/fits[fname].GetParameter(1),3))
 				legends[legnumber].AddEntry(histograms[hname],numberstring,"l")
 
 				# Create lines based on the fits
