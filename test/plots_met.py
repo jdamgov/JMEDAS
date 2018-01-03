@@ -7,7 +7,7 @@ from math import *
 gROOT.Macro("rootlogon.C")
 setTDRStyle()
 
-file = TFile("pileupNtuple.root", "READ")
+file = TFile("pileupNtuple_DY.root", "READ")
 # Large ntuples for DYjets and QCD are available
 #file = TFile.Open("root://cmseos.fnal.gov//store/user/cmsdas/2016/SHORT_EXERCISES/PileupAndMET/pileupNtuple_QCD.root","READ")
 #file = TFile.Open("root://cmseos.fnal.gov//store/user/cmsdas/2016/SHORT_EXERCISES/PileupAndMET/pileupNtuple_DYjets.root","READ")
