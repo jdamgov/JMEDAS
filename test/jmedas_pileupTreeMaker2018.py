@@ -45,6 +45,11 @@ options.register('useUpdater',
                  VarParsing.VarParsing.multiplicity.singleton,
                  VarParsing.VarParsing.varType.int,
                  'If true, the jets taken from the MiniAOD sample and not reclustered will have new JEC applied.')
+options.register('doDY',
+                 0,
+                 VarParsing.VarParsing.multiplicity.singleton,
+                 VarParsing.VarParsing.varType.int,
+                 'Process the DY sample instead of the QCD sample.')
 options.register('era',
                  #'Summer16_23Sep2016V4_MC',
                  'Spring16_25nsV6_MC',
@@ -136,10 +141,11 @@ process.TFileService.fileName=cms.string(options.ofilename)
 #! |_____|_| \_|_|     \____/   |_|                                       
 
 if options.doMiniAOD:
+    if not options.doDY:
 	process.load("Analysis.JMEDAS.qcdflat_MINIAODSIM_v4_cff")
-#	process.load("Analysis.JMEDAS.dy_MINIAODSIM_v3a_cff")
-#else: # todo: update samples for AOD mode
-#	process.load("Analysis.JMEDAS.qcdflat_AODSIM_v3_cff")
+    else:
+	process.load("Analysis.JMEDAS.dy_MINIAODSIM_v4_cff")
+
 
 process.maxEvents = cms.untracked.PSet(input = cms.untracked.int32(options.maxEvents))
 
